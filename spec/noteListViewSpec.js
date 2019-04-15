@@ -14,5 +14,13 @@ function noteListToHTML() {
   assert.isEqual(noteListView.toHTML(), "<ul><li><div>Test 1</div></li><li><div>Test 2</div></li><li><div>Test 3</div></li></ul>");
 };
 
+function noteListToHTMLNoNotes() {
+  noteListModel = new NoteListModel;
+  noteListView = new NoteListView(noteListModel);
+  console.log('noteListToHTMLNoNotes:');
+  assert.isEqual(noteListView.toHTML(), "<div>Sorry, there are no stored notes :(</div>");
+};
+
 noteListViewConstructor();
 noteListToHTML();
+noteListToHTMLNoNotes();

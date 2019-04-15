@@ -9,7 +9,11 @@
     this._noteListModel.noteArray().forEach(function(note) {
       htmlString += `<li><div>${note.content()}</div></li>`
     });
-    return htmlString + '</ul>';
+    if(htmlString === "<ul>") {
+      return '<div>Sorry, there are no stored notes :(</div>'
+    } else {
+      return htmlString + '</ul>';
+    }
   };
 
   exports.NoteListView = NoteListView;
