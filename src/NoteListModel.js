@@ -3,8 +3,12 @@
     this._noteArray = [];
   };
 
-  NoteListModel.prototype.noteArray = function() {
-    return this._noteArray;
+  NoteListModel.prototype.noteStringArray = function() {
+    array = [];
+    this._noteArray.forEach(function(note){
+      array.push(note.content());
+    });
+    return array;
   };
 
   NoteListModel.prototype.addNote = function(content) {

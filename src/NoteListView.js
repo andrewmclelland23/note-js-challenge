@@ -5,14 +5,11 @@
   };
 
   NoteListView.prototype.toHTML = function() {
-    htmlString = "<ul>"
-    this._noteListModel.noteArray().forEach(function(note) {
-      htmlString += `<li><div>${note.content()}</div></li>`
-    });
-    if(htmlString === "<ul>") {
+    notes = this._noteListModel.noteStringArray();
+    if(notes.length === 0) {
       return '<div>Sorry, there are no stored notes :(</div>'
     } else {
-      return htmlString + '</ul>';
+      return '<ul><li><div>' + notes.join('</div></li><li><div>') + '</div></li></ul>';
     }
   };
 
